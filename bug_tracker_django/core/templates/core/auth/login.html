@@ -1,0 +1,13 @@
+
+{% extends 'base.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block body %}
+    <h1>Login</h1>
+    <form action={% url 'core:login' %} method="POST">
+        {% csrf_token %}
+        {{ form.as_div}}
+        <button type="submit">Login </button>
+    </form>
+{% endblock %}

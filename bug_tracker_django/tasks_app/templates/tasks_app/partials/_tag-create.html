@@ -1,0 +1,8 @@
+<div>
+    <form hx-post="{% url 'tasks_app:create-tag' %}" hx-target="#tag-form-notification">
+        {% csrf_token %}
+        {{form.as_div}}
+        <button type="submit">Add new Tag </button>
+    </form>
+    <div id="tag-form-notification"></div>
+</div>

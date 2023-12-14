@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %} Tasks list{% endblock %}
+
+{% block body %}
+    <h1 class="text-6xl text-center m-auto text-violet-700 py-5">Tasks list</h1>
+    <button hx-trigger="load" hx-get="{% url 'tasks_app:create-task' %}" hx-swap="outerHTML">
+        Create a new Task
+    </button>
+    <div hx-trigger="load" class="w-[100%] h-10 bg-black" hx-get="{% url 'tasks_app:list-tasks' %}" hx-swap="innerHTML"></div>
+{% endblock %}

@@ -1,0 +1,6 @@
+[
+    { "id": 1, "name": "bugfix" },
+    { "id": 2, "name": "improvement" },
+    { "id": 3, "name": "feature" },
+    { "id": 4, "name": "review" }
+]

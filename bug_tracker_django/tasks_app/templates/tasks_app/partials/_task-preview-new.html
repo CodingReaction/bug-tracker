@@ -1,0 +1,10 @@
+<div hx-swap-oob="beforeend:#tasks-list">
+    <article>
+        <h2>{{ task.title }}<h2>
+        <div class="tags">
+        {% comment %} {% for tag in task.tags %}
+            {% include "tasks_app/partials/_tag.html" %}
+        {% endfor%} {% endcomment %}
+        </div>
+    </article>
+</div>

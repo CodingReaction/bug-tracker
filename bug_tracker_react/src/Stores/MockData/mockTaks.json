@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "title": "Create the repository",
+        "tags": [],
+        "description":
+            "Please login into github and create a repository related to the bugtracker project",
+        "priority": "medium",
+        "created_date": "2023-12-08T00:31:02",
+        "due_date": "2024-02-08T00:31:02",
+        "organization": 1,
+        "author": 1,
+        "assigned_to": 1,
+        "status": "not-started",
+        "comments": [
+            {
+                "id": 1,
+                "author": 1,
+                "content":
+                    "Remember to check the .gitignore file again before commit"
+            },
+            {
+                "id": 2,
+                "author": 1,
+                "content": "Oh, also add a LICENSE file to the repository"
+            }
+        ]
+    }
+]

@@ -1,0 +1,11 @@
+[OK]- Create a Task using the Tasks form in /tasks
+[OK]- Display the updated list of tasks
+[]- Add a way to add a new tag (sub form on the side or in the bottom), display and select the tag
+[] - Stylize the list of tasks displayed
+[] - refactoring of tasks app routes, views and templates
+- Change the control of the tag from a <select> to a list of #tag-name with an input for searching/creating a tag if doesn't exists
+- Display only tasks created by myself or by my organization
+- List only the organizations related to the user in the Create Task form
+
+- Add a place for creating an organization
+- Add a place for inviting someone to your organization (direct add: use the related unique code of the user, invite: find user by email and send invite email )

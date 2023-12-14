@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %} Tasks list{% endblock %}
+
+{% block body %}
+    <h1>Welcome</h1>
+    <a href="{% url 'core:login' %}">Login</a>
+    <a href="{% url 'core:register' %}">Register</a>
+{% endblock %}

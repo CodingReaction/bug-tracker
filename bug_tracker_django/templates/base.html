@@ -1,0 +1,35 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Bug tracker{% endblock %}</title>
+    <script src="https://unpkg.com/htmx.org@1.9.9"></script>
+    {% tailwind_css %}
+    {% block scripts %} {% endblock %}
+    {% block styles %} {% endblock %}
+</head>
+<body>
+    <header class="flex flex-row justify-between px-2 py-1 bg-violet-700 text-white">
+        <span>BugTracker</span>
+        <nav class="flex flex-row gap-4">
+            <ul class="
+              flex flex-row justify-end gap-4
+              [&>li]:text-base
+            hover:[&>li]:text-red-500
+              hover:[&>li]:font-bold
+              hover:[&>li]:text-xl
+              hover:[&>li]:underline
+              hover:[&>li]:cursor-pointer">
+                <li>Tasks</li>
+                <li>Reports</li>
+                <li>Organizations</li>
+            </ul>
+            <div class="rounded-full border-red-700 border-x-2 border-y-2 border-solid w-8 h-8 bg-red-400 px-5 py-5 flex flex-row justify-center align-middle leading-[0]"> <div>MT</div> </div>
+        </nav></header>
+    {% block body %}
+    {% endblock%}
+    <footer>My footer</footer>
+</body>
+</html>

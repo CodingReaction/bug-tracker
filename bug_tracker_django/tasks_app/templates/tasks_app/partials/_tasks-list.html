@@ -1,0 +1,6 @@
+<div id="tasks-list">
+    {% for task in tasks %}
+        {% include "tasks_app/partials/_task-preview.html" %}
+    {% endfor %}
+    <div id="new-task"></div>
+</div>
