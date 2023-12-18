@@ -1,0 +1,7 @@
+<form hx-post="{% url 'tasks_app:add-or-create-tag' %}" >
+    {% csrf_token %}
+    <label for="new-tag" class="flex flex-row">
+        <input type="text" name="new-tag" id="new-tag" value="" placeholder="#tag-name"/>
+        <button>Add tag</button>
+    </label>
+</form>

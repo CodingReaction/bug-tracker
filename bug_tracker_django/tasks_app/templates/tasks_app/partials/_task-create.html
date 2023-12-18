@@ -9,13 +9,14 @@
     {% csrf_token %}
     {% for field in form %}
         <div class="flex flex-col [&>input]:rounded-md [&>textarea]:rounded-md text-violet-700">
-            {% comment %} {% if field.name == "tags" %} {% endcomment %}
-                {% comment %} <button hx-on="click" hx-swap="innerHTML" hx-target="#new-tag-zone" hx-get="{% url 'tasks_app:create-tag' %}">Add new tag</button> {% endcomment %}
-                {% comment %} <div id="new-tag-zone"></div> {% endcomment %}
-            {% comment %} {% else %} {% endcomment %}
+            {% if field.name == "tags" %}
+                <div hx-get="{% url 'tasks_app:create-tag-form' %}" hx-trigger="click" hx-swap="outerHTML">Hellooo</div>
+                <div id="selected-tags-list"></div>
+                <select id="id_tags" name="tags" multiple class="hidden"></select>
+            {% else %}
                 <label for="{{ field.id_for_label }}" class="text-white font-medium text-xl">{{ field.label}}</label>
                 {{ field }}
-            {% comment %} {% endif %} {% endcomment %}
+            {% endif %}
             {{ field.errors }}
         </div>
     {% endfor %}

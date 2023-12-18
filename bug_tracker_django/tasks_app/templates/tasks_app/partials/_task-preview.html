@@ -1,8 +1,43 @@
-<article >
-    <h2>{{ task.title }}<h2>
+{% load static %}
+<article  id="new-task" class="px-10 py-5 mx-2 my-10 h-48">
+    <header class="flex flex-row justify-between align-middle">
+        <h2 class="text-3xl inline-flex flex-row justify-start align-baseline bg-violet-700 rounded-tr-lg rounded-tl-lg pt-3 pl-3"><span class="mr-5">{{ task.title }}</span> <span
+            class="text-sm font-mono
+                px-5 py-3
+                rounded-md
+                {% if task.priority == "H" or task.priority == "I" %}
+                    bg-red-900 text-white font-bold
+                {% else %}
+                    bg-yellow-600 text-black
+                {% endif %}
+                ">{{task.get_priority_display}}</span>
+        <h2>
+        <div class="flex flex-row align-baseline">
+            <p>{{ task.assigned_to }} </p>
+            <svg class="w-5 h-5">
+                <use href="{% static 'svg/icons/user.svg' %}#my_profile"></use>
+            </svg>
+        </div>
+    </header>
     <div class="tags">
     {% comment %} {% for tag in task.tags %}
         {% include "tasks_app/partials/_tag.html" %}
     {% endfor%} {% endcomment %}
     </div>
+    <p class="overflow-x-hidden overflow-y-scroll h-32 px-2 py-2 border-2 border-solid border-violet-700"> Lorem ipsum dolor sit, amet consectetur adipisicing elit. In esse adipisci ipsa deserunt repudiandae quod facere odit, asperiores dolore soluta fugiat consectetur accusamus repellat eaque dolorem velit similique vel laudantium.
+    Hic accusamus eligendi libero cupiditate quis ducimus, aperiam sunt numquam reiciendis fugiat quod amet quaerat ea alias neque earum perspiciatis dolore corrupti similique consequatur eum culpa voluptatem in. Nihil, veritatis.
+    Explicabo ab, perferendis accusantium commodi tempora, sunt tempore maiores voluptatem quasi culpa repellat vitae? Natus, est culpa itaque, officia corporis quis molestiae cumque illo modi iure possimus odio veniam optio.
+    Exercitationem, magnam fugit illum veniam facilis enim in quos sed, molestiae maiores totam vitae. Et sint ea quaerat alias distinctio officiis qui excepturi. Eos debitis ab eius voluptatem expedita nisi.
+    Praesentium, laudantium soluta dolor molestias possimus sed impedit commodi dignissimos optio vitae nisi eveniet consequatur, provident deleniti velit non illum nostrum quia ab eum ut! Ullam dolorum veritatis ipsum illo.
+    Alias quaerat praesentium earum dolorem corporis saepe, doloribus ea iure nihil adipisci nostrum eaque laborum quod amet in? Recusandae sit accusantium quidem neque saepe eum delectus perferendis, incidunt adipisci laborum?
+    Perferendis voluptatibus error ea esse laudantium deleniti sit fugit eos omnis voluptatum! Sequi reprehenderit at alias quidem, veniam eaque quo, asperiores nihil tenetur quibusdam itaque cum sint expedita consequatur repellat!
+    Placeat recusandae necessitatibus itaque delectus rerum fugit est aliquam dolor ex, repudiandae beatae, accusamus magnam totam voluptates id doloremque iusto in dignissimos unde perspiciatis! Magni nemo inventore repudiandae quas porro.
+    Sequi, provident vitae? Quis assumenda optio fugiat hic. Eum voluptatum soluta nemo quam corrupti sit ut ab, illum repellendus animi ad laborum dolorem, aut consequuntur cupiditate debitis! Iusto, nihil quisquam!
+    Rerum perspiciatis unde quidem laboriosam! Quidem, vel quod numquam adipisci iusto delectus quasi culpa sunt maxime veniam esse voluptas facilis quibusdam nihil, sapiente beatae illum eum natus illo? Quam, tempore.
+    </p>
+    {% if task.comments %}
+        <h3>Comments</h3>
+    {% else %}
+        <h3>No comments, <button>Add a new one?</button></h3>
+    {% endif %}
 </article>

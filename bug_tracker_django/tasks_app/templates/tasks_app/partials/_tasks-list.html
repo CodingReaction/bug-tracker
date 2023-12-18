@@ -1,5 +1,45 @@
 <div id="tasks-list">
-    {% for task in tasks %}
+    <div class="flex justify-between align-baseline mx-5 my-5 px-5 py-5">
+        {% if page_obj.has_previous %}
+            <button
+                hx-get="{% url 'tasks_app:list-tasks' %}?page={{ page_obj.previous_page_number }}"
+                hx-target="#tasks-list"
+                hx-swap="innerHTML"
+                class="text-white bg-violet-600 px-5 py-5 text-3xl"
+            > &lt; </button>
+        {% else %}
+            <button class="px-5 py-5 text-3xl invisible"> &lt; </button>
+        {% endif%}
+        <div>
+            {% for page in page_obj.paginator.page_range %}
+                <button
+                    hx-get="{% url 'tasks_app:list-tasks' %}?page={{ page }}"
+                    hx-target="#tasks-list"
+                    hx-swap="innerHTML"
+                    class="
+                        px-1 py-1 text-xl mx-1 my-1
+                        w-10 h-10
+                        text-white
+                        {% if page_obj.number == page %}
+                            bg-violet-950
+                        {% else %}
+                            bg-violet-600
+                        {% endif %}
+                    "
+                > {{ page }} </button>
+            {% endfor %}
+        </div>
+
+        {% if page_obj.has_next %}
+            <button
+                hx-get="{% url 'tasks_app:list-tasks' %}?page={{ page_obj.next_page_number }}"
+                hx-target="#tasks-list"
+                hx-swap="innerHTML"
+                class="text-white bg-violet-600 px-5 py-5 text-3xl"
+            > &gt; </button>
+        {% endif %}
+    </div>
+    {% for task in page_obj %}
         {% include "tasks_app/partials/_task-preview.html" %}
     {% endfor %}
     <div id="new-task"></div>
