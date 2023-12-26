@@ -1,9 +1,100 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %} Tasks list{% endblock %}
+{% block title %} DoggoManager {% endblock %}
 
 {% block body %}
-    <h1>Welcome</h1>
-    <a href="{% url 'core:login' %}">Login</a>
-    <a href="{% url 'core:register' %}">Register</a>
+    <section class="mt-32 max-w-[1340px] mx-auto">
+        <h1 class="text-yellow-400 font-semibold text-7xl w-full text-center drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+            Project management the <span class="text-yellow-500">easiest</span> way
+        </h1>
+        <h2 class="text-yellow-400 font-bold text-3xl w-[75%] m-auto text-center my-2">
+            Save your budget and improve your workflow. Learn just was you need to get started and keep everything under your deadlines!
+        </h2>
+    </section>
+    <section class="
+        flex justify-center items-center gap-5 font-semibold text-xl
+        mt-[6rem]
+        ">
+        <a href="{% url "core:docs" %}">Learn</a>
+        <a href="{% url "core:github" %}" target="_blank">Repository</a>
+        <div class="
+            flex flex-row
+            bg-yellow-400 text-white font-bold  text-4xl leading-[0] rounded-t-2xl
+            w-20 h-20 px-4 py-4
+            align-middle text-center
+            justify-center items-center">
+            <div>D</div>
+        </div>
+        <a href="{% url "core:contact-info" %}">ContactUs</a>
+        <a href="{% url "core:about" %}">About</a>
+    </section>
+    {% if request.user %}
+        <section class="flex justify-center">
+            <a href="{% url 'tasks_app:index' %}">
+                {% include "components/cp-primary-button.html" with button_text="Explore all my projects" %}
+            </a>
+        </section>
+        <div class="flex flex-row justify-center">
+            <div class="
+                flex flex-row
+                bg-yellow-400 text-white font-bold  text-4xl leading-[0] rounded-b-2xl
+                w-20 h-20 px-4 py-4
+                align-middle text-center
+                justify-center items-center">
+                <div>M</div>
+            </div>
+        </div>
+    {% endif %}
+
+    <section class="mt-20">
+        {% include "components/cp-landing-title.html" with html="Build for convenience" %}
+        <h3 class="text-yellow-400 font-bold text-2xl w-[75%] m-auto text-center my-2 ">Check it yourself with the video demo</h3>
+        <span class="bg-yellow-500 text-white text-center font-bold px-5 py-2 w-[800px] left-[50%] translate-x-[-50%] relative inline-block mt-3
+        border-black border-x-2 border-y-2 ">BugTracker 0.1.0 - released December 25, 2023</span>
+        <section class="w-[800px] h-[600px] bg-white border-black border-x-2 border-y-2 ml-auto mr-auto ">
+            Video demostration
+        </section>
+    </section>
+    <section class="mt-20 ">
+        {% include "components/cp-landing-title.html" with html="Everything in one place" %}
+        <div class="bg-yellow-400 w-full flex flex-row justify-center">
+            <div class="w-full flex flex-row flex-wrap justify-center [&>article]:w-72 gap-8 p-8 max-w-[1340px]">
+                {% include "components/cp-feature-card.html" with title="Teams" description="We got you covered! Create multiple teams and invite related members by an only-one use link" %}
+                {% include "components/cp-feature-card.html" with title="Projects" description="Assign a project to one or more teams in order to track progress latter and manage responsabilities" %}
+                {% include "components/cp-feature-card.html" with title="Tasks" description="Manage your tasks related to a project inside Kaban boards in an agile way." %}
+                {% include "components/cp-feature-card.html" with title="Shortcuts" description="Sometimes EOD arises so don't lose time navigating a board, create your tasks from the listing view zone" %}
+                {% include "components/cp-feature-card.html" with title="Attachments" description="Add screenshots, documents or any file needed to your project for latter or for sharing with the team members" %}
+                {% include "components/cp-feature-card.html" with title="Statistics" description="You can't correct what you can't measure. Check the real time graphics in order to measure the progress of your projects/teams." %}
+                {% include "components/cp-feature-card.html" with title="Reports" description="Because \"Old is gold\" you can download PDF reports of your project for printing later." %}
+                {% include "components/cp-feature-card.html" with title="Notifications" description="Configure alerts in order to be the first to know the current status of your projects" %}
+                {% include "components/cp-feature-card.html" with title="Real-time updates" description="Ban the F5 key from your keyboard and stop refreshing the Kanban board. Updates of tasks progress are in real time" %}
+                {% include "components/cp-feature-card.html" with title="Data customization" description="Create your own tags to group tasks and get more categorized reports" %}
+                {% include "components/cp-feature-card.html" with title="And much more" description="Keep reading and explore DoggoManager in order to know the awesome features that awaits you" %}
+            </div>
+        </div>
+    </section>
+
+    <section class="mt-20">
+        {% include "components/cp-landing-title.html" with html="Truly Unchained" %}
+        {% include "components/cp-landing-horizontal-card.html" with svg_path="svg/github-mark.svg" svg_id="github-logo" title="Open Source" description="Access the source code of the project at any time with the permissive MIT licensing. Free as you wish!" a_href="#" a_text="Check the github repository."%}
+        {% include "components/cp-landing-horizontal-card.html" with svg_path="svg/icons/home.svg" svg_id="home-icon" title="Stay in home" description="Wanna host DoggoManager on your internal network? It's easy with our guides" a_href="#autohost" a_text="Check the autohosting guides."%}
+    </section>
+
+    <section class="mt-20">
+        {% include "components/cp-landing-title.html" with html="Get Started!" %}
+        <div class="flex flex-row justify-center gap-8 mt-10" >
+            {% include "components/cp-get-started-card.html" with tag="REGISTER" title="Sign up" description="Create your account for free" %}
+            {% include "components/cp-get-started-card.html" with tag="LEARN" title="Quick intro" description="Check the quickstarting guide" %}
+            {% include "components/cp-get-started-card.html" with tag="CREATE" title="Start creating" description="Create your first project, team or task" %}
+        </div>
+    </section>
+
+    <section class="mt-20">
+        {% include "components/cp-landing-title.html" with html="Any questions?" %}
+        send email
+    </section>
+    <footer class="bg-yellow-700 text-white p-2 relative text-center bottom-0">
+        Hey! I'm <span class="font-bold"> Max </span> &#40;creator/<span class="font-bold">developer</span> of this project&#41;. I'm currently <span class="font-bold">looking for a job</span>, if you are interested please <a href="{% url 'core:contact-job' %}" class="font-bold underline">contact me!</span>
+    </footer>
 {% endblock %}

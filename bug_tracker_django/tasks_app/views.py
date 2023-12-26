@@ -17,7 +17,7 @@ def index_view(request: HttpRequest):
 
 @login_required
 def list_tasks_view(request: HttpRequest):
-    paginator = Paginator(Task.objects.all(), 5)
+    paginator = Paginator(Task.objects.all().order_by("title"), 5)
     page_obj = None
     page_num = request.GET.get("page")
     try:

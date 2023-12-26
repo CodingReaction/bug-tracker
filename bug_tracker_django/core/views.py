@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
+from django.views.generic import TemplateView
 from django.http import HttpRequest
 
 from django.contrib.auth import login, logout
@@ -57,3 +58,31 @@ class RegisterView(View):
         else:
             return render(request, "core/auth/register.html", context={"form": register_form})
 
+
+class DocsView(TemplateView):
+    template_name="core/documentation.html"
+
+
+class MainRepositoryView(View):
+    def get(self, request):
+        return redirect("https://github.com/CodingReaction/bug-tracker")
+
+
+class ContactInfoView(View):
+    def get(self, request):
+        return render(request, "core/contact.html", {})
+
+    def post(self, request):
+        return render(request, "core/contact.html", {})
+
+
+class ContactJobView(View):
+    def get(self, request):
+        return render(request, "core/contact.html", {})
+
+    def post(self, request):
+        return render(request, "core/contact.html", {})
+
+
+class AboutView(TemplateView):
+    template_name="core/about.html"

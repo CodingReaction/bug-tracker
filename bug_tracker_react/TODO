@@ -1,0 +1,14 @@
+[OK] Install Tailwind
+[] Add Tailwind styling to /app/tasks
+[] Create task using a mutation and fetch the task. Add the user as an ex
+[OK] Avoid using fbv in rest_framework, it's easier to add permission_classes, pagination, etc to ApiView, Mixins or ViewSets
+[] Add header and footer
+[] Display the loged user
+[] Logout the user on logout
+[] Refresh the access token using the refresh token
+[] Add task edition functionalities
+[] Add a Page with graphs of the tasks
+[] Add "create organization" page
+[] Add "profile" page
+[] Add tasks reordering by drag
+[] Add pagination to tasks list

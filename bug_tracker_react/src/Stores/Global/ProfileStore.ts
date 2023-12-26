@@ -1,20 +1,5 @@
 import { create } from "zustand";
-
-interface IProfile {
-    id: number | null;
-    first_name: string;
-    last_name: string;
-    email: string;
-    username: string;
-}
-
-type ProfileType = {
-    id: number | null;
-    first_name: string;
-    last_name: string;
-    email: string;
-    username: string;
-};
+import type { ProfileType } from "../../Types/types";
 
 type ProfileTypeZustand = ProfileType & {
     setUser: (userData: ProfileType) => void;

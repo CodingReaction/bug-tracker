@@ -1,0 +1,11 @@
+{% load static %}
+<article>
+    <svg class="w-40 h-40">
+        <use  href="{% static svg_path %}#{{ svg_id }}"></use>
+    </svg>
+    <h3>{{ title }} </h3>
+    <p>{{ description }}</p>
+    {% if a_href %}
+        <a href="{{ a_href }}" target="_blank">{{ a_text }}</a>
+    {% endif %}
+</article>
